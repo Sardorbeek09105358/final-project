@@ -21,7 +21,7 @@ function Example(props) {
       localStorage.setItem('number', numberValue);
       setModal(false);
     } else {
-      alert('Please fill in all fields');
+      alert('inputlarni toldiring');
     }
   };
 

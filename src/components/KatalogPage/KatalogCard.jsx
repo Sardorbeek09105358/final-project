@@ -7,7 +7,9 @@ import img5 from "../../images/img-5.png"
 import img6 from "../../images/img-6.png"
 import img7 from "../../images/img-7.png"
 import img8 from "../../images/img-8.png"
+import { useSearchContext } from '../SearchContext/Search'
 const KatalogCard = () => {
+    const { inputVal, setInputVal } = useSearchContext();
     const card = [
         {
             id: 1,
@@ -55,12 +57,15 @@ const KatalogCard = () => {
             title: "Дерматологическое оборудование",
         },
     ];
-    
+    const filteredUsers = card.filter(data =>
+        data.title.toLowerCase().includes(inputVal.toLowerCase())
+    );
+
     return (
         <div className='w-full mb-10'>
             <div className='flex w-[70%] flex-wrap mx-auto justify-between gap-4'>
                 {
-                    card.map((item, index) => {
+                    filteredUsers.map((item, index) => {
                         return (
                             <div key={index} className="w-[300px] rounded-2xl flex flex-col items-center justify-between h-[300px] border-2">
                                 <img src={item.image} alt="" className='h-[60%] w-[70%] pt-4'/>

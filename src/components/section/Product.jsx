@@ -68,7 +68,7 @@ const Product = () => {
                         ))}
                     </div>
                 ) : (
-                    <p>No products in the cart</p>
+                    <p className='capitalize text-[30px] font-bold'>ma'lumotlar yo'q😁</p>
                 )}
             </div>
         </div>

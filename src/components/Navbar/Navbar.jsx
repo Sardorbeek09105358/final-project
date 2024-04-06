@@ -1,11 +1,11 @@
 import React from 'react'
-import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from "../../images/Logo.png";
 import Example from '../Modal/Example';
+import { useSearchContext } from '../SearchContext/Search';
 
 const Navbar = () => {
-  const [inputVal, setInputVal] = useState('')
+  const { inputVal, setInputVal } = useSearchContext();
   const navigate = useNavigate()
 
   const handleCLick = () => {
@@ -36,7 +36,7 @@ const Navbar = () => {
       <nav className='w-full'>
         <div className='w-[95%] flex justify-between items-center mt-10 mx-auto'>
           <img src={logo} alt="logo" className='cursor-pointer' onClick={handleCLick} />
-          <div className='border border-[#888] rounded-3xl w-[550px] flex items-center gap-3 pl-2 justify-between pr-4'>
+          <div className='border border-[#888] rounded-3xl w-[550px] flex items-center gap-3 pl-2 justify-between pr-4 relative'>
             <select className="text-xl border rounded-full outline-none border-hidden bg-[#EFEFEF] h-10 w-[200px]">
               <option className="text-xl" value="Вс категории">
                 Всe категории
@@ -63,7 +63,7 @@ const Navbar = () => {
                 Высоковск
               </option>
             </select>
-            <input type="search" className='w-[250px] outline-none h-[45px] pl-2 capitalize' placeholder='enter your text'   value={inputVal} onChange={handleChange}/>
+            <input type="search" className='w-[250px] outline-none h-[45px] pl-2 capitalize' placeholder='enter your text'  value={inputVal} onChange={handleChange}  />
             <i className="fa-solid fa-magnifying-glass cursor-pointer"></i>
           </div>
           <div className='text-[#7A7687] font-medium'>

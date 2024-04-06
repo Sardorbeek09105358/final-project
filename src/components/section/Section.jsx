@@ -5,9 +5,11 @@ import header3 from "../../images/header-3.png";
 import header4 from "../../images/header-4.png";
 import header5 from "../../images/header-5.png";
 import header6 from "../../images/header-6.png";
+import { useSearchContext } from '../SearchContext/Search';
 import "./section.css";
 
 const Section = () => {
+    const { inputVal } = useSearchContext();
     const card = [
         {
             id: 1,
@@ -56,12 +58,10 @@ const Section = () => {
         }
     };
 
-    
-    // const filteredUsers = data.filter(user =>
-    //     user.category.toLowerCase().includes(inputVal.toLowerCase())
-    // );
+    const filteredUsers = card.filter(data =>
+        data.title.toLowerCase().includes(inputVal.toLowerCase())
+    );
 
-  
     return (
         <div className='w-full mb-10'>
             <div className='w-[90%] flex justify-between mx-auto h-[150px] items-center'>
@@ -72,7 +72,7 @@ const Section = () => {
             </div>
             <div className='flex w-[80%] flex-wrap mx-auto justify-between gap-[120px]'>
                 {
-                    card.map((item, index) => {
+                    filteredUsers.map((item, index) => {
                         return (
                             <NavLink to={`/Product/${item.id}`} key={index} className="w-[320px] rounded-2xl flex flex-col  justify-between h-[300px] border-2">
                                 <div onClick={() => addToLocalStorage(item.id, item.title, item.image)} className="flex flex-col justify-between h-full items-center">

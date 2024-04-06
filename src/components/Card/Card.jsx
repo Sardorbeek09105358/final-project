@@ -6,7 +6,7 @@ import seven from "../../images/7.png"
 const Card = () => {
     return (
         <div className='w-full mt-10'>
-            <h2 className='w-[90%] ml-[180px] mb-10'>Почему выбирают нас?</h2>
+            <h2 className='w-[90%] ml-[180px] mb-10 text-[30px]'>Почему выбирают нас?</h2>
             <div className='flex mb-10 w-[90%] justify-around mx-auto'>
                 <div className='rounded border-2 w-[250px] h-[200px] flex flex-col items-center justify-center gap-6 cursor-pointer transform transition duration-300 ease-in-out hover:shadow-lg hover:scale-105'>
                     <img src={img1} alt="Быстрая  доставка" className='w-[20%] h-[30%]' />
